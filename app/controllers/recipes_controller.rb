@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
     @current_user = current_user
     @recipe = @current_user.recipes.new(recipe_params)
     if @recipe.save
-      flash[:alert] = 'Recipe created successfully'
+      flash[:notice] = 'Recipe created successfully'
       redirect_to recipes_url
     else
       flash.now[:alert] = @recipe.errors.full_messages.to_sentence
