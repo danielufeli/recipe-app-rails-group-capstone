@@ -4,4 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
+
+  has_many :foods, class_name: 'Food', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
+  has_many :recipes, class_name: 'Recipe', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
+
+  validates :name, presence: true
 end
