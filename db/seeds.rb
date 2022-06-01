@@ -18,3 +18,4 @@ rec2 = Recipe.create(name: 'recipe2', preparation_time: 2, cooking_time: 1, desc
 
 rf1 = RecipeFood.create(quantity: 2, recipe: rec1, food: food1)
 rf2 = RecipeFood.create(quantity: 1, recipe: rec1, food: food2)
+rf3 = RecipeFood.create(quantity: 5, recipe: rec1, food: food3)

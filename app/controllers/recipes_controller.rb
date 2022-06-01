@@ -4,6 +4,14 @@ class RecipesController < ApplicationController
     @recipes = @current_user.recipes.order(created_at: :desc)
   end
 
+  def show
+    @current_user = current_user
+    @recipe = Recipe.find(params[:id])
+    @f_field = params[:field] || 'name'
+    @f_order = params[:order] || 'asc'
+    @rec_foods = RecipeFood.joins(:food).where(recipe_id: params[:id]).order("#{@f_field} #{@f_order}").includes(:food)
+  end
+
   def new
     @current_user = current_user
   end
