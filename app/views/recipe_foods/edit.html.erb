@@ -1,0 +1,7 @@
+<div class="form__container">
+<%= tag.h1("Update the quantity of #{@recipe_food.food.name} for the recipe #{@recipe_food.recipe.name}", class: 'form__title') %>
+<%= form_with model: RecipeFood.update do |f| %>
+  <%= f.text_field :quantity, value: @recipe_food.quantity %>
+  <%= f.submit 'Update' %>
+<% end %>
+</div>
