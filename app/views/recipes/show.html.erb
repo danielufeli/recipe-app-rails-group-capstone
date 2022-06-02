@@ -14,7 +14,8 @@
   <div class="recipe__details-item">
     <%= tag.span('Public:') %>
     <label class="switch">
-      <input type="checkbox">
+    <p><%= @recipe.public %></p>
+      <%= check_box_tag 'public_recipe', 'yes', @recipe.public %>
       <span class="slider round"></span>
     </label>
   </div>
@@ -32,7 +33,9 @@
       <th><%= link_to 'Food', recipe_path(@recipe.id, field: 'name', order: (@f_field == 'name' && @f_order == 'asc' ? 'desc' : 'asc')) %></th>
       <th><%= link_to 'Quantity', recipe_path(@recipe.id, field: 'quantity', order: (@f_field == 'quantity' && @f_order == 'asc' ? 'desc' : 'asc')) %></th>
       <th>Value</th>
+      <% if can? :destroy, @recipe %>
       <th>Action</th>
+      <% end %>
     </tr>
     </thead>
     <tbody>
@@ -41,10 +44,12 @@
           <td><%= rf.food.name %></td>
           <td><%= rf.quantity %></td>
           <td><%= rf.quantity * rf.food.price %></td>
+          <% if can? :destroy, @recipe %>
           <td>
-            <%= button_to 'Modify', edit_recipe_food_path(rf.id) %>
+            <%= link_to 'Modify', edit_recipe_food_path(rf.id) %>
             <%= button_to 'Remove', recipe_food_path(rf.id), params: { recipe_food: { rf_id: rf.id }}, method: :delete %>
           </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
