@@ -7,7 +7,7 @@ class RecipeFoodsController < ApplicationController
   def update
     @current_user = current_user
     @recipe_food = RecipeFood.find(params[:id])
-    if @recipe_food.update_attributes(recipe_food_params)
+    if @recipe_food.update(quantity: params[:recipe_food][:quantity])
       flash[:notice] = "Recipe's food updated!"
       redirect_to recipe_path(@recipe_food.recipe.id)
     else
@@ -20,7 +20,6 @@ class RecipeFoodsController < ApplicationController
     @current_user = current_user
     @recipe_food = RecipeFood.find(params[:recipe_food][:rf_id])
     @recipe_id = @recipe_food.recipe.id
-    @recipe_food.destroy
     if @recipe_food.destroy
       flash[:notice] = "Recipe's food removed!"
     else
@@ -31,7 +30,7 @@ class RecipeFoodsController < ApplicationController
 
   private
 
-  def recipe_food_params
+  def rf_params
     params.require(:recipe_food).permit(:quantity)
   end
 end
