@@ -20,7 +20,6 @@ class RecipeFoodsController < ApplicationController
     @current_user = current_user
     @recipe_food = RecipeFood.find(params[:recipe_food][:rf_id])
     @recipe_id = @recipe_food.recipe.id
-    @recipe_food.destroy
     if @recipe_food.destroy
       flash[:notice] = "Recipe's food removed!"
     else
