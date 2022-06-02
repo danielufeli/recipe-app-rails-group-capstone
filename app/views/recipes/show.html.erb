@@ -15,7 +15,7 @@
   <div class="recipe__info-item public__item-float">
     <%= tag.span('Public:') %>
     <label class="toggle__switch">
-      <%= check_box_tag 'public_recipe', 'yes', @recipe.public %>
+      <%= check_box_tag 'public_recipe', 'yes', @recipe.public, disabled: true %>
       <span class="slider round"></span>
     </label>
   </div>

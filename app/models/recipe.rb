@@ -9,6 +9,8 @@ class Recipe < ApplicationRecord
 
   after_initialize :default_values
 
+  scope :others_public_recipes, -> { where('user != @current_user and public == true') }
+
   private
 
   def default_values
