@@ -33,7 +33,7 @@ class FoodsController < ApplicationController
   # returns an array of at most 15 posts
   def most_recent_added
     Food.order(id: :desc).limit(15)
-    end
+  end
 
   private
 
