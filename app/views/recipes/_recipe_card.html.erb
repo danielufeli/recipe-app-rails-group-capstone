@@ -1,6 +1,6 @@
 <div class="card__box">
   <div class="card__box-head">
-    <%= tag.h1(recipe.name, class: 'card__title') %>
+    <%= tag.h2(recipe.name, class: 'card__title') %>
     <% if can? :destroy, recipe %>
       <%= button_to 'Remove', recipe_path(recipe.id), params: { recipe: { recipe_id: recipe.id} }, method: :delete, class: 'link remove__link-float' %>
       <% end %>
