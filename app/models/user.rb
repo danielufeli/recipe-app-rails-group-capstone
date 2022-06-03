@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :recipes, class_name: 'Recipe', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
 
   validates :name, presence: true
-  
+
   def missing_food
     user_recipes = recipes.includes(:recipe_foods)
 
