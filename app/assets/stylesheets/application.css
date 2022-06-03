@@ -45,6 +45,7 @@ section {
 .container {
   width: 50%;
   margin: 0 auto;
+  padding-bottom: 2rem;
 }
 
 h1,
@@ -57,6 +58,7 @@ p {
 .link {
   color: var(--blue);
   line-height: 1.2;
+  font-weight: 500;
   text-decoration: none;
   border: 0;
   padding: 0;
@@ -64,7 +66,7 @@ p {
   cursor: pointer;
 }
 
-.btn {
+.btnn {
   padding: 0.25rem 0.75rem;
   background-color: transparent;
   border: 1px solid var(--accent);
@@ -77,9 +79,25 @@ p {
   color: var(--accent);
 }
 
-.btn:hover {
+.btnn:hover {
   color: var(--red);
   border: 1px solid var(--red);
+}
+
+.brand {
+  color: var(--accent) !important;
+  font-weight: 500 !important;
+}
+
+.navbar-nav {
+  margin-left: auto !important;
+}
+
+.section__submenu {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: flex-end;
 }
 
 .card__box {
