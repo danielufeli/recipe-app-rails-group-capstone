@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :recipe_foods, only: %i[index new edit update destroy]
 
   # Defines the root path route ("/")
-  root "recipes#index"
+  root "foods#index"
 end
