@@ -1,0 +1,52 @@
+<%= form_with(model: food, url: foods_url, scope: :foods, class: 'text-black' ) do |f| %>
+ <button type="button" class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Food
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create food</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <% if food.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(food.errors.count, 'error') %> prohibited this ingredients from being saved:</h2>
+
+        <ul>
+          <% food.erros.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :measurement_unit %><br />
+      <%= f.text_field :measurement_unit , autofocus: true, autocomplete: "measurement unit " %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :price %><br />
+      <%= f.text_field :price, autofocus: true, autocomplete: "price" %>
+        </div>
+  </div>
+      <div class="modal-footer">
+        <% if food.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', food, method: :delete, class: 'text_danger', data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+    <%= f.submit class: 'btn btn-primary float-left' %>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<% end %>
