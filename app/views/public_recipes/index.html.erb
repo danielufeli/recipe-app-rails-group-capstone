@@ -1,0 +1,6 @@
+<div class="section__submenu">
+  <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary w-20' %>
+</div>
+<div class="section__list">
+<%= render partial: 'public_recipe_card', collection: @public_recipes, as: :recipe %>
+</div>

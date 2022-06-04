@@ -1,0 +1,6 @@
+<section class="container-fluid d-flex flex-column gap-3">
+  <%= render partial: 'foods/form', locals: { food: Food.new } %>
+  <div class="foods-table">
+    <%= render partial: 'layouts/table' %>
+  </div>
+</section>
