@@ -6,7 +6,6 @@ class Recipe < ApplicationRecord
   validates :preparation_time, numericality: true, comparison: { greater_than: 0 }
   validates :cooking_time, numericality: true, comparison: { greater_than: 0 }
   validates :description, presence: true
-  validates :public, presence: true
 
   after_initialize :default_values
 

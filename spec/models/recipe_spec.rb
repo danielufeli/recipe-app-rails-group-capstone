@@ -44,11 +44,4 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).to_not be_valid
     end
   end
-
-  context 'when validates, public' do
-    it 'should be present' do
-      recipe.public = nil
-      expect(recipe).to_not be_valid
-    end
-  end
 end
