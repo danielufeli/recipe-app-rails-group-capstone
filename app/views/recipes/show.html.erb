@@ -22,7 +22,7 @@
 </div>
 <div class="recipe__buttons">
   <% if can? :destroy, @recipe %>
-    <%= link_to 'Generate shopping list', '', class: 'btnn' %>
+    <%= link_to 'Generate shopping list', shopping_list_path, class: 'btnn' %>
     <button type="button" class="btn btn-secondary text-white" data-bs-toggle="modal" data-bs-target="#newIngredientModal">
         Add ingredient
       </button>
