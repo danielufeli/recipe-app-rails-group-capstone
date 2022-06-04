@@ -23,7 +23,17 @@
 <div class="recipe__buttons">
   <% if can? :destroy, @recipe %>
     <%= link_to 'Generate shopping list', '', class: 'btnn' %>
-    <%= link_to 'Add ingredient', '', class: 'btnn' %>
+    <button type="button" class="btn btn-secondary text-white" data-bs-toggle="modal" data-bs-target="#newIngredientModal">
+        Add ingredient
+      </button>
+
+      <div class="modal fade" id="newIngredientModal" tabindex="-1" aria-labelledby="newIngredientModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <%= render partial: 'recipes/add_ingredient_form', locals: { food: RecipeFood.new, recipe_id: params[:id] }%>
+          </div>
+        </div>
+      </div>
   <% end %>
 </div>
 <div class="recipe__ingredients">
