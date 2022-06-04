@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
     price = calculate_missing_price(missing_food)
 
-    { data: missing_food, price: }
+    { data: missing_food, price: price }
   end
 
   def calculate_missing_price(missing_food)
