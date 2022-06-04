@@ -10,7 +10,7 @@
     rf_f.each { |item| rf_price += item.quantity * item.food.price }
     %>
     <%= tag.p("Total food items: #{rf_f.count}", class: 'card__text') %>
-    <%= tag.p("Total price: #{rf_price}", class: 'card__text') %>
+    <%= tag.p("Total price: $ #{rf_price}", class: 'card__text') %>
   </div>
   <%= link_to '', recipe_path(recipe.id), id: "link_recipe-#{recipe.id}", class: 'card__hidden-link' %>
 </div>
