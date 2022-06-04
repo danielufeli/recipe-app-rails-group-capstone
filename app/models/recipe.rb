@@ -11,6 +11,10 @@ class Recipe < ApplicationRecord
 
   scope :others_public_recipes, -> { where('user != @current_user and public == true') }
 
+  def total_ingredients
+    foods.length
+  end
+
   private
 
   def default_values
