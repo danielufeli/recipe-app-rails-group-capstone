@@ -5,7 +5,7 @@ class RecipeFoodsController < ApplicationController
     ingredient = RecipeFood.new(food:, recipe:, quantity: recipe_foods_params[:quantity])
 
     if ingredient.save
-      flash[:success] = 'Ingredient item has been created'
+      flash[:notice] = 'Ingredient item has been created'
     else
       flash[:alert] = 'Ingredient item could not be saved'
     end
